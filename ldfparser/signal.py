@@ -68,5 +68,7 @@ class LinSignal:
             if len(init_value) != width / 8:
                 raise ValueError(f"array signal {name}:{width} init value doesn't match the width")
         if isinstance(init_value, int) and (width < 1 or width > 16):
-            raise ValueError(f"scalar signal {name}:{width} must be 1-16 bits long")
+            # raise ValueError(f"scalar signal {name}:{width} must be 1-16 bits long")
+            Warning(f"scalar signal {name}:{width} must be 1-16 bits long")
+            width = 16
         return LinSignal(name, width, init_value)
